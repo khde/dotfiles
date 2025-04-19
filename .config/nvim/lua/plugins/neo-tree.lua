@@ -10,8 +10,18 @@ return {
 	},
 	config = function()
 		vim.keymap.set("n", "<C-n>", ":Neotree filesystem toggle left<CR>", {})
-        view = {
-            width = 10,
-        }
+        require("neo-tree").setup({
+            window = {
+                width = 35
+            },
+            filesystem = {
+                bind_to_cwd = true,
+                filtered_items = {
+                    visible = true,
+                    hide_dotfiles = false,
+                    hide_gitignored = false,
+                },
+            },
+        })
 	end
 }
