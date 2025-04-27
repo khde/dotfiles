@@ -7,8 +7,15 @@ bindkey -e
 # colors
 autoload -U colors && colors
 
+# Git integration
+autoload -Uz vcs_info
+precmd_vcs_info() { vcs_info }
+precmd_functions+=( precmd_vcs_info )
+setopt prompt_subst
+zstyle ':vcs_info:git:*' formats '%b'
+
 # prompts
-PROMPT='%F{244}[%n@%M]:%f %F{032}%~%f%F{160} >%f '
+PROMPT='%F{244}[%n@%M]:%f %F{032}%~%f %F{009}${vcs_info_msg_0_:+(${vcs_info_msg_0_}) }%f%F{160}>%f '
 RPROMPT='%F{yellow}[%*]%f'
 
 # autocompletion
