@@ -1,0 +1,5 @@
+[core]
+	editor = nano
+[alias]
+	lg = log --color --graph --decorate --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+    st = status -s -b
